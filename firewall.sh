@@ -239,24 +239,31 @@ fi
 
 if [ $num -eq 6 ]
 then 
-#sudo iptables -L >> input1
-echo \<table\>>> table.html
-while read -r line; do
-    echo \<tr\>>> table.html
-    for item in $line; do
-        echo \<td\>$item\<\/td\>>> table.html
-    done 
-    echo \<\/tr\>>> table.html
-done < input.txt 
-echo \<\/table\>>> table.html
 
-#echo "<table>">>table.html
-#echo "<tr>">>table.html
-#echo "<td>">>table.html
-#sudo iptables -L >>table.html
-#echo "</td>">>table.html
-#echo "</tr>">>table.html
-#echo "</table>">>table.html
+> inputkls.txt
+> tablekls.html
+sudo iptables -L >> inputkls.txt
+echo \<table\> >> tablekls.html
+echo \<tr\> >> tablekls.html
+ echo \<td\>"\tLIST OF ALL THE IPTABLES\n "\<\/td\> >> tablekls.html
+echo \<tr\> >> tablekls.html
+while read -r line; do
+    echo \<tr\> >> tablekls.html
+    for item in $line; do
+        echo \<td\>$item\<\/td\> >> tablekls.html
+    done 
+    echo \<\/tr\> >> tablekls.html
+done < inputkls.txt 
+echo \<\/table\> >> tablekls.html
+#google-chrome tablekls.html
+firefox tablekls.html
+echo "\n************* taking you to the HTML file ****************\n
+***************** if doesnt show \n"
+echo "************* please go to your locoal file and open tablekls.html ****************\n"
+
+echo " \nPress Enter To Go To Main Menu "
+read temp
+##start1
 fi
 
 
