@@ -2,11 +2,12 @@ start1()
 {
 printf "\n******Hello Welcome to The Help Menu*****\n
 1. Check list of Rules
-2.Add Firewall Rule
-3.Delete Firewall Rule
-4.Modify Firewall Rule
-5.Save
-6.Exit\n
+2. Add Firewall Rule
+3. Delete Firewall Rule
+4. Modify Firewall Rule
+5. Save
+6. HTML
+7. Exit\n
 Please Type In a Number to choose your option\n
     "
 function
@@ -235,7 +236,35 @@ then
     read temp
     start1
 fi
+
 if [ $num -eq 6 ]
+then 
+#sudo iptables -L >> input1
+echo \<table\>>> table.html
+while read -r line; do
+    echo \<tr\>>> table.html
+    for item in $line; do
+        echo \<td\>$item\<\/td\>>> table.html
+    done 
+    echo \<\/tr\>>> table.html
+done < input.txt 
+echo \<\/table\>>> table.html
+
+#echo "<table>">>table.html
+#echo "<tr>">>table.html
+#echo "<td>">>table.html
+#sudo iptables -L >>table.html
+#echo "</td>">>table.html
+#echo "</tr>">>table.html
+#echo "</table>">>table.html
+fi
+
+
+
+
+
+
+if [ $num -eq 7 ]
 then
 echo "\n\t******Exiting The program \n 
  ********** HAVE A GOOD DAY **********\n" 
@@ -243,7 +272,7 @@ exit 0
 
 fi
 
-if [ $num -le 0 ] || [ $num -ge 7 ]
+if [ $num -le 0 ] || [ $num -ge 8 ]
 then
 echo "please enter the write option i.e 1, 2, 3, 4, 5, 6"
 start1
